@@ -20,10 +20,10 @@ export const initialTodos = [
 ];
 
 export const validationConfig = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  errorClass: "popup__error_visible",
-  inputErrorClass: "popup__input_type_error",
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  errorClass: "modal__error_visible",
+  inputErrorClass: "modal__input_type_error",
   inactiveButtonClass: "button_disabled",
 };
