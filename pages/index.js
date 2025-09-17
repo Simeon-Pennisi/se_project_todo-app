@@ -57,3 +57,5 @@ initialTodos.forEach((item) => {
 const formValidator = new FormValidator(validationConfig, addTodoForm);
 console.log(formValidator);
 formValidator.enableValidation();
+
+// this comment is to test git push
