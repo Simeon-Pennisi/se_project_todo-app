@@ -1,4 +1,3 @@
-// create a Todo class to handle todo item logic
 class Todo {
   constructor(data, selector) {
     this._data = data;
@@ -6,7 +5,6 @@ class Todo {
   }
 
   _setEventListeners() {
-    // set event listener for checkbox
     const todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     todoCheckboxEl.addEventListener("change", () => {
       this._data.completed = todoCheckboxEl.checked;
@@ -14,7 +12,6 @@ class Todo {
         `Todo "${this._data.name}" completed: ${this._data.completed}`
       );
     });
-    // set event listener for delete button
     const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
     todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
@@ -42,7 +39,6 @@ class Todo {
     }
   }
 
-  // create a method to generate the todo item view
   getView() {
     this._todoElement = this._templateElement.content
       .querySelector(".todo")

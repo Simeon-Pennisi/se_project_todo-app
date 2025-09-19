@@ -11,13 +11,22 @@ class FormValidator {
       (this._inactiveButtonClass = settings._inactiveButtonClass),
       console.log(this._formElement);
   }
+
+  _setEventListeners() {
+    console.log("setting event listeners");
+  }
+
   enableValidation() {
-    const { inputSelector, submitButtonSelector } = this._settings;
-    this._inputList = Array.from(
-      this._formElement.querySelectorAll(inputSelector)
-    );
-    this._buttonElement = this._formElement.querySelector(submitButtonSelector);
+    this._formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
     this._setEventListeners();
+  }
+
+  resetValidation() {
+    this._formElement.addEventListener("click", (evt) => {
+      evt.preventDefault();
+    });
   }
 }
 

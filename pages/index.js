@@ -38,7 +38,6 @@ addTodoForm.addEventListener("submit", (evt) => {
   const name = evt.target.name.value;
   const dateInput = evt.target.date.value;
 
-  // Create a date object and adjust for timezone
   const date = new Date(dateInput);
   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
@@ -58,4 +57,7 @@ const formValidator = new FormValidator(validationConfig, addTodoForm);
 console.log(formValidator);
 formValidator.enableValidation();
 
-// this comment is to test git push
+addTodoForm.addEventListener("submit", () => {
+  formValidator.resetValidation();
+  addTodoForm.reset();
+});
