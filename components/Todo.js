@@ -8,14 +8,10 @@ class Todo {
     const todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     todoCheckboxEl.addEventListener("change", () => {
       this._data.completed = todoCheckboxEl.checked;
-      console.log(
-        `Todo "${this._data.name}" completed: ${this._data.completed}`
-      );
     });
     const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
     todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
-      console.log(`Todo "${this._data.name}" deleted`);
     });
   }
 
