@@ -22,7 +22,7 @@ export const initialTodos = [
 export const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
-  submitButtonSelector: ".modal__button",
+  submitButtonSelector: ".popup__button",
   errorClass: "modal__error_visible",
   inputErrorClass: "modal__input_type_error",
   inactiveButtonClass: "button_disabled",
