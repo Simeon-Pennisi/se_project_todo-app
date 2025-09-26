@@ -52,7 +52,6 @@ initialTodos.forEach((item) => {
 });
 
 const formValidator = new FormValidator(validationConfig, addTodoForm);
-// console.log(formValidator);
 formValidator.enableValidation();
 
 addTodoForm.addEventListener("submit", () => {
