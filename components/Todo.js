@@ -4,6 +4,7 @@ class Todo {
     this._templateElement = document.querySelector(selector);
     this._handleCompleted = handleCompleted;
     this._handleTotal = handleTotal;
+    this._completed = data.completed;
   }
 
   _setEventListeners() {
@@ -16,6 +17,7 @@ class Todo {
     const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
     todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
+      this._handleCompleted(this._completed);
       this._handleTotal(this._total);
     });
   }

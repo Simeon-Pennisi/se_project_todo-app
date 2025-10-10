@@ -9,7 +9,7 @@ export default class TodoCounter {
   updateCompleted = (increment) => {
     if (increment) {
       this._completed++;
-    } else {
+    } else if (!increment && this._completed > 0) {
       this._completed--;
     }
     this._updateText();
@@ -18,8 +18,10 @@ export default class TodoCounter {
   updateTotal = (increment) => {
     if (increment) {
       this._total++;
-    } else {
+    } else if (!increment && this._total > 0) {
       this._total--;
+      // this._completed = this._completed - 2;
+      this._completed = Math.max(0, this._completed - 2);
     }
     this._updateText();
   };
