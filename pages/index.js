@@ -4,6 +4,9 @@ import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import TodoCounter from "../components/TodoCounter.js";
+
+const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
@@ -42,8 +45,17 @@ const todosList = document.querySelector(".todos__list");
 //   modal.classList.remove("popup_visible");
 // };
 
+function handleCompleted(completed) {
+  todoCounter.updateCompleted(completed);
+}
+
+function handleTotal() {
+  todoCounter.updateTotal();
+}
+
 const generateTodo = (data, id) => {
-  const todo = new Todo(data, "#todo-template");
+  // const todo = new Todo(data, "#todo-template");
+  const todo = new Todo(data, "#todo-template", handleCompleted, handleTotal);
   const todoElement = todo.getView();
   return todoElement;
 };
