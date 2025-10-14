@@ -8,19 +8,19 @@ export default class TodoCounter {
 
   updateCompleted = (increment) => {
     if (increment) {
-      this._completed++;
-    } else if (!increment && this._completed > 0) {
-      this._completed--;
+      this._completed += 1;
+    } else if (!increment) {
+      this._completed = Math.max(0, this._completed - 1);
     }
     this._updateText();
   };
 
   updateTotal = (increment) => {
     if (increment) {
-      this._total++;
+      this._total += 1;
     } else if (!increment) {
-      this._total = Math.max(0, this._completed - 1);
-      // this._completed = this._completed - 2;
+      this._total = Math.max(0, this._total - 1);
+      this.updateCompleted(false);
       this._completed = Math.max(0, this._completed - 2);
     }
     this._updateText();

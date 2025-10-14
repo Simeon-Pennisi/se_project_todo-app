@@ -13,7 +13,6 @@ const addTodoCloseBtn = addTodoPopupElement.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
-// this is the basis for the renderer function in Section.js
 const generateTodo = (data, id) => {
   const todo = new Todo(data, "#todo-template", handleCompleted, handleTotal);
   const todoElement = todo.getView();
@@ -23,17 +22,14 @@ const generateTodo = (data, id) => {
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
-    // initialTodos.forEach((item) => {
     const todo = generateTodo(item);
-    // todosList.append(todo);
     section.addItem(todo);
-    todoCounter.updateTotal();
-    // });
+    todoCounter.updateTotal(true);
+    todoCounter.updateCompleted(true);
   },
   containerSelector: ".todos__list",
 });
 
-// call renderItems to render initial items
 section.renderItems();
 
 const addTodoPopup = new PopupWithForm({
@@ -46,13 +42,11 @@ const addTodoPopup = new PopupWithForm({
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
     const id = uuidv4();
-    // this will be replaced by addItem function in Section.js
     const values = { name, date, id };
     const todo = generateTodo(values);
-    // todosList.append(todo);
-    // replace the line above with addItem function in Section.js
     section.addItem(todo);
-    todoCounter.updateTotal();
+    todoCounter.updateTotal(true);
+    todoCounter.updateCompleted(true);
     addTodoPopup.close();
   },
 });
@@ -70,11 +64,6 @@ addTodoButton.addEventListener("click", () => {
 });
 
 addTodoPopup.setEventListeners();
-
-// initialTodos.forEach((item) => {
-//   const todo = generateTodo(item);
-//   todosList.append(todo);
-// });
 
 const formValidator = new FormValidator(validationConfig, addTodoForm);
 formValidator.enableValidation();
