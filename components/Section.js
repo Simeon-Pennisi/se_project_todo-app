@@ -1,12 +1,11 @@
-import { sectionConfigObj } from "../utils/constants.js";
-
 export default class Section {
-  constructor(configs) {
-    const config = new sectionConfigObj(configs);
-    const { items, renderer, containerSelector } = sectionConfigObj;
-    this._initialItems = items;
-    this._renderer = renderer;
+  constructor({ items, renderer, containerSelector }) {
+    this._renderer = renderer; // assign renderer to this
+    this._initialItems = items; // assign initial items to this
     this._container = document.querySelector(containerSelector);
+    console.log(this._container);
+    console.log(this._initialItems);
+    console.log(this._renderer);
   }
 
   renderItems() {
