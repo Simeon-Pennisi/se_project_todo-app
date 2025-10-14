@@ -24,8 +24,6 @@ const section = new Section({
   renderer: (item) => {
     const todo = generateTodo(item);
     section.addItem(todo);
-    todoCounter.updateTotal(true);
-    todoCounter.updateCompleted(true);
   },
   containerSelector: ".todos__list",
 });
