@@ -44,7 +44,6 @@ const addTodoPopup = new PopupWithForm({
     const todo = generateTodo(values);
     section.addItem(todo);
     todoCounter.updateTotal(true);
-    todoCounter.updateCompleted(true);
     addTodoPopup.close();
   },
 });
