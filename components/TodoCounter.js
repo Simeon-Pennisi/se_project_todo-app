@@ -3,7 +3,6 @@ export default class TodoCounter {
     this._element = document.querySelector(selector);
     this._completed = todos.filter((todo) => todo.completed).length;
     this._total = todos.length;
-    console.log(this._completed, this._total);
     this._updateText();
   }
 
