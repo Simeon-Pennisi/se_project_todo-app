@@ -18,10 +18,10 @@ export default class TodoCounter {
   updateTotal = (increment) => {
     if (increment) {
       this._total += 1;
-    } else if (!increment) {
+    } else {
       this._total = Math.max(0, this._total - 1);
-      this.updateCompleted(false);
-      this._completed = Math.max(0, this._completed - 2);
+      // this.updateCompleted(false);
+      // this._completed = Math.max(0, this._completed - 2);
     }
     this._updateText();
   };
