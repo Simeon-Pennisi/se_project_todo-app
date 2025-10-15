@@ -19,11 +19,15 @@ const generateTodo = (data, id) => {
   return todoElement;
 };
 
+const renderTodo = (item) => {
+  const todo = generateTodo(item);
+  todosList.append(todo);
+};
+
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
-    const todo = generateTodo(item);
-    section.addItem(todo);
+    renderTodo(item);
   },
   containerSelector: ".todos__list",
 });
@@ -41,8 +45,7 @@ const addTodoPopup = new PopupWithForm({
 
     const id = uuidv4();
     const values = { name, date, id };
-    const todo = generateTodo(values);
-    section.addItem(todo);
+    renderTodo(values);
     todoCounter.updateTotal(true);
     addTodoPopup.close();
   },
